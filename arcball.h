@@ -476,7 +476,7 @@ public:
     //构造/析构函数
     ArcBall_t(GLfloat NewWidth, GLfloat NewHeight);
 
-    ~ArcBall_t() {};
+    ~ArcBall_t() = default;
 
     //设置边界
     inline

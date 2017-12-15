@@ -84,8 +84,7 @@ public:
 //        glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
 //        glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
 
-        glTranslatef(TranslateX, TranslateY, TranslateZ);
-        glScalef(ScaleXYZ, ScaleXYZ, ScaleXYZ);
+
 
         glBegin(GL_TRIANGLES);//开始绘制
         for (auto &fSet : fSets) {
@@ -148,39 +147,25 @@ public:
 
     }
 
-    void changeRotate(float RotateX, float RotateY, float RotateZ) {
-        this->RotateX = RotateX;
-        this->RotateY = RotateY;
-        this->RotateZ = RotateZ;
-    }
 
-    void changeTranslate(float TranslateX, float TranslateY, float TranslateZ) {
-        this->TranslateX = TranslateX;
-        this->TranslateY = TranslateY;
-        this->TranslateZ = TranslateZ;
-    }
+//    void changeTranslate(float TranslateX, float TranslateY, float TranslateZ) {
+//        this->TranslateX = TranslateX;
+//        this->TranslateY = TranslateY;
+//        this->TranslateZ = TranslateZ;
+//    }
+//
+//    void changeScale(float ScaleXYZ) {
+//        this->ScaleXYZ = ScaleXYZ;
+//    }
 
-    void changeScale(float ScaleXYZ) {
-        this->ScaleXYZ = ScaleXYZ;
-    }
-
-    void changeFalseTrue(bool Translate, bool Rotate) {
-        this->Translate = Translate;
-        this->Rotate = Rotate;
-    }
 
 private:
     vector<vector<GLfloat >> vSets;
     vector<vector<GLint>> fSets;
-    float RotateX = 0.0f;
-    float RotateY = 0.0f;
-    float RotateZ = 0.0f;
     float TranslateX = 0.0f;
     float TranslateY = 0.0f;
     float TranslateZ = 0.0f;
     float ScaleXYZ = 1.0f;
-    bool Rotate = false;
-    bool Translate = false;
 };
 
 
