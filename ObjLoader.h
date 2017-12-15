@@ -82,10 +82,6 @@ public:
 
 
         glTranslatef(TranslateX, TranslateY, TranslateZ);
-        if (isLeftButtonClicked) {
-            glRotatef(LastRotateX, 1.0f, 0.0f, 0.0f);
-            glRotatef(LastRotateY, 0.0f, 1.0f, 0.0f);
-        }
         glRotatef(RotateX, 1.0f, 0.0f, 0.0f);
         glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
         glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
