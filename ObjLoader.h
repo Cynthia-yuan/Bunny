@@ -82,9 +82,18 @@ public:
 
 
         glTranslatef(TranslateX, TranslateY, TranslateZ);
+        if (isLeftButtonClicked) {
+            glRotatef(LastRotateX, 1.0f, 0.0f, 0.0f);
+            glRotatef(LastRotateY, 0.0f, 1.0f, 0.0f);
+        }
         glRotatef(RotateX, 1.0f, 0.0f, 0.0f);
         glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
         glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
+        if (isLeftButtonClicked) {
+            cout << "RotateX:" << RotateX << endl;
+            cout << "RotateY:" << RotateY << endl;
+            cout << "RotateZ:" << RotateZ << endl;
+        }
         glScalef(ScaleXYZ, ScaleXYZ, ScaleXYZ);
 
         glBegin(GL_TRIANGLES);//开始绘制
@@ -164,10 +173,12 @@ public:
         this->ScaleXYZ = ScaleXYZ;
     }
 
-    void changeFalseTrue(bool Translate, bool Rotate) {
-        this->Translate = Translate;
-        this->Rotate = Rotate;
+    void setLastRotateXY(float LastRotateX, float LastRotateY, bool isLeftButtonClicked) {
+        this->LastRotateX = LastRotateX;
+        this->LastRotateY = LastRotateY;
+        this->isLeftButtonClicked = isLeftButtonClicked;
     }
+
 
 private:
     vector<vector<GLfloat >> vSets;
@@ -179,8 +190,9 @@ private:
     float TranslateY = 0.0f;
     float TranslateZ = 0.0f;
     float ScaleXYZ = 1.0f;
-    bool Rotate = false;
-    bool Translate = false;
+    float LastRotateX = 0.0f;
+    float LastRotateY = 0.0f;
+    bool isLeftButtonClicked = false;
 };
 
 
