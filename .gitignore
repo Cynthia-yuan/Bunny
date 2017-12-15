@@ -4,7 +4,6 @@ Makefile
 Bunny_autogen
 cmake-build-debug
 .idea
-CMakeLists.txt
 *.obj
 *.cbp
 CMakeCache.txt
