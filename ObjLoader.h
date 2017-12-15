@@ -80,10 +80,11 @@ public:
 
     void Draw() {
 
+
+        glTranslatef(TranslateX, TranslateY, TranslateZ);
         glRotatef(RotateX, 1.0f, 0.0f, 0.0f);
         glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
         glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
-        glTranslatef(TranslateX, TranslateY, TranslateZ);
         glScalef(ScaleXYZ, ScaleXYZ, ScaleXYZ);
 
         glBegin(GL_TRIANGLES);//开始绘制

@@ -47,6 +47,7 @@ void display() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 //    glTranslatef(0.0f, 0.0f, 0.0f);
+    glPushMatrix();
     setLightRes();
     gluLookAt(-5, 0, 0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     objModel->Draw();//绘制obj模型
@@ -54,7 +55,7 @@ void display() {
 //        glPopMatrix();
 //    if (isClicked_Translate)
 //        glPopMatrix();
-//    glPopMatrix();
+    glPopMatrix();
     glutSwapBuffers();
     glFlush();
 }
