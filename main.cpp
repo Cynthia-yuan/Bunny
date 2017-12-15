@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "ObjLoader.h"
+#include "arcball.h"
 
 #define  GLUT_WHEEL_UP 3           //定义滚轮操作
 #define  GLUT_WHEEL_DOWN 4
@@ -11,6 +12,9 @@
 
 string filePath;
 ObjLoader *objModel;
+ArcBallT *arcBallT;
+Matrix3fT *RotateMartix;
+
 bool isClicked_Rotate = false;
 bool isClicked_Translate = false;
 int Rotate_temp_X = 0;
@@ -19,6 +23,8 @@ int Translate_temp_X = 0;
 int Translate_temp_Y = 0;
 int Rotate_change_x = 0, Rotate_change_y = 0, Translate_change_x = 0, Translate_change_y = 0;
 float Scale_coefficient = 1;
+
+
 //安置光源
 void setLightRes() {
     GLfloat lightPosition[] = {100.0f, 100.0f, 100.0f, 0.0f};
@@ -39,14 +45,15 @@ void init() {
 }
 
 void display() {
-    objModel->changeTranslate(Translate_change_x, Translate_change_y, 0);
+//    objModel->changeTranslate(Translate_change_x, Translate_change_y, 0);
     objModel->changeScale(Scale_coefficient);
     objModel->changeRotate(0.0f, Rotate_change_x, Rotate_change_y);
+
+
     glColor3f(1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-//    glTranslatef(0.0f, 0.0f, 0.0f);
     setLightRes();
     gluLookAt(-5, 0, 0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     objModel->Draw();//绘制obj模型
@@ -158,6 +165,7 @@ void myIdle() {
 int main(int argc, char **argv) {
     filePath = "bunny.obj";
     objModel = new ObjLoader(filePath);
+    arcBallT = new ArcBallT();
     glutInit(&argc, argv);
     init();
     glutDisplayFunc(display);

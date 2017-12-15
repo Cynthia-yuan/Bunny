@@ -80,9 +80,10 @@ public:
 
     void Draw() {
 
-        glRotatef(RotateX, 1.0f, 0.0f, 0.0f);
-        glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
-        glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
+//        glRotatef(RotateX, 1.0f, 0.0f, 0.0f);
+//        glRotatef(RotateY, 0.0f, 1.0f, 0.0f);
+//        glRotatef(RotateZ, 0.0f, 0.0f, 1.0f);
+
         glTranslatef(TranslateX, TranslateY, TranslateZ);
         glScalef(ScaleXYZ, ScaleXYZ, ScaleXYZ);
 
