@@ -57,7 +57,7 @@ void display() {
     setLightRes();
     gluLookAt(0, 0, 10, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     glTranslatef(Translate_change_x, Translate_change_y, 0);
-    cout << "Translate_change_x" << Translate_change_x << endl;
+	// cout << "Translate_change_x" << Translate_change_x << endl;
     glScalef(Scale_coefficient, Scale_coefficient, Scale_coefficient);
     glMultMatrixf(arcBallT->Transform.M);
     objModel->Draw();//绘制obj模型
